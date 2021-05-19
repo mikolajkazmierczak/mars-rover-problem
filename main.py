@@ -131,7 +131,19 @@ def comeback_constraint(path):
     return True
   return False
   
-  
+
+def row_col_sum_constraint(path):
+  for r in path:
+    row_sum = sum([i for i in r])
+    if row_sum > 1:
+      return False
+  for c in range(len(path)):
+    col_sum = sum([path[j][c] for j in range(len(path))])
+    if col_sum > 1:
+      return False
+  return True
+
+
 def objective(samples, decisions):
   sum = sum([samples[i].value * decisions[i] for i in range(len(decisions))])
   return sum
