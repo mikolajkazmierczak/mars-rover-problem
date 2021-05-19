@@ -5,13 +5,13 @@ random.seed(42)
 
 
 # Config
-CAPACITY = 20
-RANGE = 100
+CAPACITY = 10
+RANGE = 20
 X, Y = 5, 5
 VALUES = (1,10)
 MASS = (1,10)
-CATEGORIES_N = 5
-SAMPLES_N = 6
+CATEGORIES_N = 2
+SAMPLES_N = 5
 
 # Constants
 CATEGORIES = [random.randrange(*VALUES) for _ in range(CATEGORIES_N)]
@@ -92,25 +92,25 @@ class DistanceMap:
 def mass_constraint(capacity, decision, samples):
   sum = 0
   for i in range(len(samples)):
-    sum += decision[i] * samples[i]
+    sum += decision[i] * samples[i].mass
   if sum <= capacity:
     return True
   return False
 
 
-def range_constraint(range, path, distance_map):
+def range_constraint(robot_range, path, distance_map):
   sum = 0
   for i in range(len(path)):
     for j in range(len(path)):
-      sum += path[i][j]*distance_map[i][j]
-  if sum <= range:
+      sum += path[i][j]*distance_map.distances[i][j]
+  if sum <= robot_range:
     return True
   return False
 
 
 def category_constraint(samples, decisions, categories):
   sum = 0
-  for j in categories:
+  for j in range(len(categories)):
     counter = 0
     for i in range(len(decisions)):
       if samples[i].category == j:
@@ -131,10 +131,21 @@ def comeback_constraint(path):
     return True
   return False
   
-  
+
+def row_col_sum_constraint(path):
+  for r in path:
+    row_sum = sum([i for i in r])
+    if row_sum > 1:
+      return False
+  for c in range(len(path)):
+    col_sum = sum([path[j][c] for j in range(len(path))])
+    if col_sum > 1:
+      return False
+  return True
+
+
 def objective(samples, decisions):
-  sum = sum([samples[i].value * decisions[i] for i in range(len(decisions))])
-  return sum
+  return sum([samples[i].value * decisions[i] for i in range(len(decisions))])
 
 
 robot = Robot(CAPACITY, RANGE)
@@ -149,7 +160,7 @@ distance_map = DistanceMap(SAMPLES_N,SAMPLES_N, samples)
 
 
 # Variables
-decisions = [0 for _ in range(SAMPLES_N)]
+decisions = [1 for _ in range(SAMPLES_N)]
 path = [[0 for _ in range(SAMPLES_N + 1)] for _ in range(SAMPLES_N + 1)]
 
 print(mars_map)
