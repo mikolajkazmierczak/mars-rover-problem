@@ -1,24 +1,9 @@
 import random
-
-
-random.seed(42)
-
-
-# Config
-CAPACITY = 10
-RANGE = 20
-X, Y = 5, 5
-VALUES = (1,10)
-MASS = (1,10)
-CATEGORIES_N = 2
-SAMPLES_N = 5
-
-# Constants
-CATEGORIES = [random.randrange(*VALUES) for _ in range(CATEGORIES_N)]
+from utils import euclidean_distance as e_dist
 
 
 def e_dist(p1, p2):
-  # Dystans euklidesowy
+  # euclidean distance
   return round( ((p1[0]-p2[0])**2 + (p1[1]-p2[1])**2) ** (1/2), 3 )
 
 
@@ -29,11 +14,11 @@ class Robot:
 
 
 class Sample:
-  def __init__(self, id):
+  def __init__(self, id, categories, mass_range):
     self.id = id
-    self.category = random.randrange(0, CATEGORIES_N)
-    self.value = CATEGORIES[self.category]
-    self.mass = random.randrange(*MASS)
+    self.category = random.randrange(0, len(categories))
+    self.value = categories[self.category]
+    self.mass = random.randrange(*mass_range)
     self.position = (None,None)
     self.base_distance = (None,None)
 
@@ -70,7 +55,7 @@ class MarsMap:
         break
 
 
-class DistanceMap:
+class DistancesMap:
   def __init__(self, x, y, samples):
     self.x, self.y = x, y
     self.distances = [[None for _ in range(self.y)] for _ in range(self.x)]
@@ -84,12 +69,12 @@ class DistanceMap:
     for s in samples:
       self.distances[0].append(s.base_distance[1])
     
-
   def __str__(self):
     return '\n'.join([str(level) for level in self.distances])
 
 
-def mass_constraint(capacity, decision, samples):
+def constraint_capacity(capacity, decision, samples):
+  # Robot "knapsack" capacity
   sum = 0
   for i in range(len(samples)):
     sum += decision[i] * samples[i].mass
@@ -98,7 +83,8 @@ def mass_constraint(capacity, decision, samples):
   return False
 
 
-def range_constraint(robot_range, path, distance_map):
+def constraint_range(robot_range, path, distance_map):
+  # Robot max distance traveled
   sum = 0
   for i in range(len(path)):
     for j in range(len(path)):
@@ -108,7 +94,8 @@ def range_constraint(robot_range, path, distance_map):
   return False
 
 
-def category_constraint(samples, decisions, categories):
+def constraint_categories(samples, decisions, categories):
+  # Collect minimum one sample of each category
   sum = 0
   for j in range(len(categories)):
     counter = 0
@@ -123,16 +110,17 @@ def category_constraint(samples, decisions, categories):
   return False
 
 
-def comeback_constraint(path):
+def constraint_comeback(path):
+  # Robot need to come back to base
   row_sum = sum([i for i in path[0][1:]])
   col_sum = sum([path[j][0] for j in range (len(path[1:])+1)])
-
   if row_sum + col_sum == 2:
     return True
   return False
   
 
-def row_col_sum_constraint(path):
+def constraint_row_col_sum(path):
+  # Robot cannot time travel (go to two points at the same time)
   for r in path:
     row_sum = sum([i for i in r])
     if row_sum > 1:
@@ -145,23 +133,5 @@ def row_col_sum_constraint(path):
 
 
 def objective(samples, decisions):
+  # Objective: Maximize the sample value
   return sum([samples[i].value * decisions[i] for i in range(len(decisions))])
-
-
-robot = Robot(CAPACITY, RANGE)
-
-mars_map = MarsMap(X,Y)
-
-samples = [Sample(i) for i in range(SAMPLES_N)]
-for sample in samples:
-  mars_map.push_sample(sample)
-
-distance_map = DistanceMap(SAMPLES_N,SAMPLES_N, samples)
-
-
-# Variables
-decisions = [1 for _ in range(SAMPLES_N)]
-path = [[0 for _ in range(SAMPLES_N + 1)] for _ in range(SAMPLES_N + 1)]
-
-print(mars_map)
-print(distance_map)
