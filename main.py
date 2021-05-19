@@ -34,10 +34,11 @@ class MarsMap:
     self.spaces[self.x//2][self.y//2] = -1  # set base
 
   def __str__(self):
+    max_len = max([len(str(p)) for l in self.spaces for p in l])
     output = ''
     for level in self.spaces:
       for point in level:
-        output += str(point) + ' '
+        output += str(point) + ' '*(max_len-len(str(point))) + ' '
       output += '\n'
     return output
 
@@ -70,7 +71,13 @@ class DistancesMap:
       self.distances[0].append(s.base_distance[1])
     
   def __str__(self):
-    return '\n'.join([str(level) for level in self.distances])
+    max_len = max([len(str(p)) for l in self.distances for p in l])
+    output = ''
+    for level in self.distances:
+      for point in level:
+        output += str(point) + ' '*(max_len-len(str(point))) + ' '
+      output += '\n'
+    return output
 
 
 def constraint_capacity(capacity, decision, samples):
