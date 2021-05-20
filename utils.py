@@ -10,3 +10,24 @@ def pretty_stringify_two_level_array(array):
       output += str(point) + ' '*(max_len-len(str(point))) + ' '
     output += '\n'
   return output
+
+
+def mass_vector(decision, samples):
+  vector = []
+  for j in decision:
+    summary = []
+    for i in range(len(samples)):
+      summary.append(j[1][i] * samples[i].mass)
+    vector.append(sum(summary))
+  return vector
+
+
+def distance_vector(path, distance_map):
+  vector = []
+  for p in path:
+    summary =[]
+    for i in range(len(distance_map.distances)):
+      for j in range(len(distance_map.distances)):
+        summary.append(p[0][i][j]*distance_map.distances[i][j])
+    vector.append(sum(summary))
+  return vector
