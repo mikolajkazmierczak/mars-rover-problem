@@ -32,3 +32,21 @@ def distance_vector(path, distance_map):
         summary.append(p[0][i][j]*distance_map.distances[i][j])
     vector.append(sum(summary))
   return vector
+
+
+def get_column(path, n):
+  return [path[i][n] for i in range(len(path))]
+    
+
+def get_index(vector):
+  return [i for i, el in enumerate(vector) if el]
+
+
+def create_first_list(x):
+  decisions = [0 for _ in range(x)]
+  path = [[0 for _ in range(x+1)] for _ in range(x+1)]
+  for i in range(x//10 + 1):
+    path[i][i+1] = 1
+    decisions[i] = 1
+  path[(x//10)+1][0] = 1
+  return path, decisions

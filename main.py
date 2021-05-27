@@ -1,10 +1,35 @@
+import copy
 import random
-from utils import euclidean_distance as e_dist, pretty_matrix
+from utils import euclidean_distance as e_dist,\
+  pretty_matrix, get_index, get_column
 
 
-def e_dist(p1, p2):
-  # euclidean distance
-  return round( ((p1[0]-p2[0])**2 + (p1[1]-p2[1])**2) ** (1/2), 3 )
+def get_variables(path, decisions):    
+  new_decisions = copy.deepcopy(decisions)
+  new_path = copy.deepcopy(path)
+  rand_id = random.randint(0,len(decisions)-1)
+  
+  if decisions[rand_id] == 0: 
+    new_decisions[rand_id] = 1
+    change = True
+    id_replacement = random.choice(get_index(decisions))+1
+  else: 
+    new_decisions[rand_id] = 0
+    change = False
+    id_replacement = random.choice(get_index(new_decisions))+1
+  if change:
+    new_path[id_replacement][rand_id+1] = 1
+    new_path[id_replacement][get_index(path[id_replacement])[0]] = 0
+    new_path[rand_id+1][get_index(path[id_replacement])[0]] = 1
+  else:
+    new_path[rand_id+1][get_index(path[rand_id+1])[0]] = 0
+    new_path[get_index(get_column(path, rand_id+1))[0]][id_replacement] = 1
+    new_path[get_index(get_column(path, rand_id+1))[0]][rand_id+1] = 0
+
+  if constraint_comeback(new_path) and constraint_row_col_sum(new_path):
+    return new_path, new_decisions
+  else:
+    return get_variables(path, decisions)
 
 
 class Robot:
