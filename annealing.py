@@ -1,4 +1,4 @@
-from utils import pretty_stringify_two_level_array, mass_vector, distance_vector
+from utils import pretty_matrix, mass_vector, distance_vector
 import numpy as np
 import matplotlib.pyplot as plt
 import random
@@ -68,7 +68,7 @@ RANGE = 150
 # map
 X, Y = 50, 50
 # samples
-SAMPLES_N = 50
+SAMPLES_N = 20
 VALUES_RANGE = (1,10)
 CATEGORIES_N = 2
 CATEGORIES = [random.randrange(*VALUES_RANGE) for _ in range(CATEGORIES_N)]
@@ -91,7 +91,7 @@ distances_map = DistancesMap(SAMPLES_N,SAMPLES_N, samples)
 ##################################################
 # Simulated Annealing
 ##################################################
-n = 100          # Number of cycles
+n = 5          # Number of cycles
 m = 50          # Number of trials per cycle
 na = 1          # Number of accepted solutions
 prob_start = 0.7        # Probability of accepting worse solution at the start
@@ -153,7 +153,7 @@ for i in range(n):
     t_current = frac * t_current
 
 # print solution
-print('Best solution: \n' + pretty_stringify_two_level_array(x_best[0]))
+print('Best solution: \n' + pretty_matrix(x_best[0]))
 print(x_best[1])
 print('Best objective: ' + str(f_best))
 

@@ -1,6 +1,5 @@
 import random
-from utils import euclidean_distance as e_dist, \
-  pretty_stringify_two_level_array as stringify_map
+from utils import euclidean_distance as e_dist, pretty_matrix
 
 
 def e_dist(p1, p2):
@@ -35,7 +34,7 @@ class MarsMap:
     self.spaces[self.x//2][self.y//2] = -1  # set base
 
   def __str__(self):
-    return stringify_map(self.spaces)
+    return pretty_matrix(self.spaces)
 
   def get_base(self):
     return self.x//2,self.y//2
@@ -66,7 +65,7 @@ class DistancesMap:
       self.distances[0].append(s.base_distance[1])
     
   def __str__(self):
-    return stringify_map(self.distances)
+    return pretty_matrix(self.distances)
 
 
 def constraint_capacity(capacity, decision, samples):
