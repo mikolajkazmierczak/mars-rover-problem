@@ -1,0 +1,252 @@
+(venv) PS C:\_dev\ppdp> py .\annealing.py
+Cycle: 0 with Temperature: 2.8036732520571284
+Cycle: 1 with Temperature: 2.7209887640887547
+Cycle: 2 with Temperature: 2.640742764466188
+Cycle: 3 with Temperature: 2.5628633385466855
+Cycle: 4 with Temperature: 2.4872806925571194
+Cycle: 5 with Temperature: 2.413927091046384
+Cycle: 6 with Temperature: 2.34273679618242
+Cycle: 7 with Temperature: 2.2736460088394645
+Cycle: 8 with Temperature: 2.206592811422722
+Cycle: 9 with Temperature: 2.141517112379222
+Cycle: 10 with Temperature: 2.078360592345133
+Cycle: 11 with Temperature: 2.017066651881274
+Cycle: 12 with Temperature: 1.9575803607499829
+Cycle: 13 with Temperature: 1.8998484086878822
+Cycle: 14 with Temperature: 1.8438190576304339
+Cycle: 15 with Temperature: 1.7894420953454597
+Cycle: 16 with Temperature: 1.7366687904340792
+Cycle: 17 with Temperature: 1.6854518486587362
+Cycle: 18 with Temperature: 1.6357453705591776
+Cycle: 19 with Temperature: 1.5875048103183984
+Cycle: 20 with Temperature: 1.5406869358416933
+Cycle: 21 with Temperature: 1.4952497900130335
+Cycle: 22 with Temperature: 1.4511526530940533
+Cycle: 23 with Temperature: 1.4083560062319447
+Cycle: 24 with Temperature: 1.3668214960435587
+Cycle: 25 with Temperature: 1.3265119002439747
+Cycle: 26 with Temperature: 1.2873910942887334
+Cycle: 27 with Temperature: 1.2494240189998407
+Cycle: 28 with Temperature: 1.212576649146528
+Cycle: 29 with Temperature: 1.1768159629526134
+Cycle: 30 with Temperature: 1.142109912503136
+Cycle: 31 with Temperature: 1.1084273950237413
+Cycle: 32 with Temperature: 1.0757382250070817
+Cycle: 33 with Temperature: 1.0440131071612504
+Cycle: 34 with Temperature: 1.0132236101560053
+Cycle: 35 with Temperature: 0.983342141143257
+Cycle: 36 with Temperature: 0.9543419210289847
+Cycle: 37 with Temperature: 0.9261969604744202
+Cycle: 38 with Temperature: 0.8988820366049926
+Cycle: 39 with Temperature: 0.8723726704061606
+Cycle: 40 with Temperature: 0.8466451047858762
+Cycle: 41 with Temperature: 0.8216762832840175
+Cycle: 42 with Temperature: 0.7974438294097133
+Cycle: 43 with Temperature: 0.7739260265880392
+Cycle: 44 with Temperature: 0.7511017986981176
+Cycle: 45 with Temperature: 0.7289506911851752
+Cycle: 46 with Temperature: 0.7074528527296368
+Cycle: 47 with Temperature: 0.6865890174568225
+Cycle: 48 with Temperature: 0.6663404876713092
+Cycle: 49 with Temperature: 0.6466891171004793
+Cycle: 50 with Temperature: 0.6276172946322442
+Cycle: 51 with Temperature: 0.6091079285323655
+Cycle: 52 with Temperature: 0.5911444311272303
+Cycle: 53 with Temperature: 0.5737107039383551
+Cycle: 54 with Temperature: 0.556791123255295
+Cycle: 55 with Temperature: 0.540370526134029
+Cycle: 56 with Temperature: 0.5244341968082741
+Cycle: 57 with Temperature: 0.5089678535015492
+Cycle: 58 with Temperature: 0.49395763562817185
+Cycle: 59 with Temperature: 0.47939009137171595
+Cycle: 60 with Temperature: 0.46525216562979915
+Cycle: 61 with Temperature: 0.4515311883143966
+Cycle: 62 with Temperature: 0.43821486299719575
+Cycle: 63 with Temperature: 0.4252912558898167
+Cycle: 64 with Temperature: 0.41274878514902175
+Cycle: 65 with Temperature: 0.4005762104973306
+Cycle: 66 with Temperature: 0.388762623149739
+Cycle: 67 with Temperature: 0.37729743603751303
+Cycle: 68 with Temperature: 0.366170374320299
+Cycle: 69 with Temperature: 0.3553714661780442
+Cycle: 70 with Temperature: 0.34489103387447884
+Cycle: 71 with Temperature: 0.334719685084148
+Cycle: 72 with Temperature: 0.32484830447522317
+Cycle: 73 with Temperature: 0.3152680455405487
+Cycle: 75 with Temperature: 0.29694680345426955
+Cycle: 76 with Temperature: 0.28818940122152137
+Cycle: 77 with Temperature: 0.2796902677863289
+Cycle: 78 with Temperature: 0.2714417864182944
+Cycle: 79 with Temperature: 0.2634365650157114
+Cycle: 80 with Temperature: 0.2556674294809307
+Cycle: 81 with Temperature: 0.24812741729109714
+Cycle: 82 with Temperature: 0.24080977125849473
+Cycle: 83 with Temperature: 0.23370793347490837
+Cycle: 84 with Temperature: 0.22681553943457541
+Cycle: 85 with Temperature: 0.22012641233046015
+Cycle: 86 with Temperature: 0.21363455751873964
+Cycle: 87 with Temperature: 0.20733415714653997
+Cycle: 88 with Temperature: 0.2012195649381086
+Cycle: 89 with Temperature: 0.19528530113475034
+Cycle: 90 with Temperature: 0.1895260475839919
+Cycle: 91 with Temperature: 0.18393664297357454
+Cycle: 92 with Temperature: 0.1785120782060031
+Cycle: 93 with Temperature: 0.17324749190950664
+Cycle: 94 with Temperature: 0.16813816608138743
+Cycle: 95 with Temperature: 0.16317952185985402
+Cycle: 96 with Temperature: 0.15836711542054932
+Cycle: 97 with Temperature: 0.15369663399409614
+Cycle: 98 with Temperature: 0.1491638920010911
+Cycle: 99 with Temperature: 0.1447648273010835
+Best solution:
+0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0
+0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+Best decisions:
+[0, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 1, 0] 
+Best objective: 18
+(venv) PS C:\_dev\ppdp> py .\tabu.py
+Count: 1 with Distance: 7
+Count: 2 with Distance: 9
+Count: 3 with Distance: 11
+Count: 4 with Distance: 12
+Count: 5 with Distance: 13
+Count: 6 with Distance: 12
+Count: 7 with Distance: 10
+Count: 8 with Distance: 9
+Count: 9 with Distance: 7
+Count: 10 with Distance: 9
+Count: 11 with Distance: 10
+Count: 12 with Distance: 11
+Count: 13 with Distance: 12
+Count: 14 with Distance: 12
+Count: 15 with Distance: 14
+Count: 16 with Distance: 12
+Count: 17 with Distance: 14
+Count: 18 with Distance: 16
+Count: 19 with Distance: 14
+Count: 20 with Distance: 12
+Count: 21 with Distance: 14
+Count: 22 with Distance: 16
+Count: 23 with Distance: 14
+Count: 24 with Distance: 13
+Count: 25 with Distance: 14
+Count: 26 with Distance: 14
+Count: 27 with Distance: 12
+Count: 28 with Distance: 13
+Count: 29 with Distance: 14
+Count: 30 with Distance: 13
+Count: 31 with Distance: 17
+Count: 32 with Distance: 15
+Count: 33 with Distance: 17
+Count: 34 with Distance: 15
+Count: 35 with Distance: 14
+Count: 36 with Distance: 12
+Count: 37 with Distance: 13
+Count: 38 with Distance: 15
+Count: 39 with Distance: 13
+Count: 40 with Distance: 13
+Count: 41 with Distance: 12
+Count: 42 with Distance: 14
+Count: 43 with Distance: 13
+Count: 44 with Distance: 12
+Count: 45 with Distance: 13
+Count: 46 with Distance: 12
+Count: 47 with Distance: 13
+Count: 48 with Distance: 13
+Count: 49 with Distance: 16
+Count: 50 with Distance: 15
+Count: 51 with Distance: 14
+Count: 52 with Distance: 12
+Count: 53 with Distance: 16
+Count: 54 with Distance: 12
+Count: 55 with Distance: 11
+Count: 56 with Distance: 14
+Count: 57 with Distance: 16
+Count: 58 with Distance: 13
+Count: 59 with Distance: 10
+Count: 60 with Distance: 8
+Count: 61 with Distance: 9
+Count: 62 with Distance: 7
+Count: 63 with Distance: 9
+Count: 64 with Distance: 7
+Count: 65 with Distance: 6
+Count: 66 with Distance: 8
+Count: 67 with Distance: 9
+Count: 68 with Distance: 11
+Count: 69 with Distance: 10
+Count: 70 with Distance: 12
+Count: 71 with Distance: 11
+Count: 72 with Distance: 12
+Count: 73 with Distance: 10
+Count: 74 with Distance: 8
+Count: 75 with Distance: 6
+Count: 76 with Distance: 8
+Count: 77 with Distance: 6
+Count: 78 with Distance: 10
+Count: 79 with Distance: 8
+Count: 80 with Distance: 9
+Count: 81 with Distance: 11
+Count: 82 with Distance: 12
+Count: 83 with Distance: 11
+Count: 84 with Distance: 10
+Count: 85 with Distance: 8
+Count: 86 with Distance: 9
+Count: 87 with Distance: 8
+Count: 88 with Distance: 7
+Count: 89 with Distance: 6
+Count: 90 with Distance: 8
+Count: 91 with Distance: 10
+Count: 92 with Distance: 8
+Count: 93 with Distance: 10
+Count: 94 with Distance: 11
+Count: 95 with Distance: 13
+Count: 96 with Distance: 12
+Count: 97 with Distance: 13
+Count: 98 with Distance: 14
+Count: 99 with Distance: 12
+Count: 100 with Distance: 14
+Best solution:
+0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0
+0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+Best decisions:
+[0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0] 
+Best objective: 17
+(venv) PS C:\_dev\ppdp>
