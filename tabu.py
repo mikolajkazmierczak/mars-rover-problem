@@ -28,7 +28,7 @@ def tabu_search(path, d, first_value):
     neighborhood = find_neighborhood(solution, decisions)
     best_index = 0
     best_solution = neighborhood[best_index]
-    print(f'Count: {count} with Solution: {objective(samples,best_solution[1])}')
+    print(f'Count: {count} with Distance: {objective(samples,best_solution[1])}')
     found = False
     while not found:
       i = 0
