@@ -25,10 +25,10 @@ def tabu_search(path, d, first_value):
   best_solution_ever = solution
 
   while count <= ITERATIONS:
-    print(count)
     neighborhood = find_neighborhood(solution, decisions)
     best_index = 0
     best_solution = neighborhood[best_index]
+    print(f'Count: {count} with Solution: {objective(samples,best_solution[1])}')
     found = False
     while not found:
       i = 0
@@ -98,7 +98,6 @@ memory_value = []
 # Tabu search
 path, decisions = create_first_list(SAMPLES_N)
 distance = objective(samples, decisions)
-print(f'{pretty_matrix(path)}\nSolution: {decisions}\nValue: {distance}')
 solution, value = tabu_search(path, decisions, distance)
 
 # Solution

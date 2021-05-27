@@ -54,7 +54,7 @@ DeltaE_avg = 0.0     # DeltaE average
 
 # Annealing
 for i in range(n):
-	print('Cycle: ' + str(i) + ' with Temperature: ' + str(t_current))
+	print(f'Cycle: {i} with Temperature: {t_current}')
 	for j in range(m):
 		# trial points
 		while True:
