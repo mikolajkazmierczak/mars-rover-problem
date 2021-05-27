@@ -71,12 +71,10 @@ class DistancesMap:
 
 def constraint_capacity(capacity, decision, samples):
   # Robot "knapsack" capacity
-  sum = 0
+  _sum = 0
   for i in range(len(samples)):
-    sum += decision[i] * samples[i].mass
-  if sum <= capacity:
-    return True
-  return False
+    _sum += decision[i] * samples[i].mass
+  return _sum <= capacity
 
 
 def constraint_range(robot_range, path, distance_map):
@@ -85,14 +83,12 @@ def constraint_range(robot_range, path, distance_map):
   for i in range(len(path)):
     for j in range(len(path)):
       sum += path[i][j]*distance_map.distances[i][j]
-  if sum <= robot_range:
-    return True
-  return False
+  return sum <= robot_range
 
 
 def constraint_categories(samples, decisions, categories):
   # Collect minimum one sample of each category
-  sum = 0
+  _sum = 0
   for j in range(len(categories)):
     counter = 0
     for i in range(len(decisions)):
@@ -100,29 +96,25 @@ def constraint_categories(samples, decisions, categories):
         counter += 1
     if counter == 0:
       return False
-    sum += 1
-  if sum == len(categories):
-    return True
-  return False
+    _sum += 1
+  return _sum == len(categories)
 
 
 def constraint_comeback(path):
   # Robot need to come back to base
   row_sum = sum([i for i in path[0][1:]])
   col_sum = sum([path[j][0] for j in range (len(path[1:])+1)])
-  if row_sum + col_sum == 2:
-    return True
-  return False
+  return row_sum + col_sum == 2
   
 
 def constraint_row_col_sum(path):
   # Robot cannot time travel (go to two points at the same time)
-  for r in path:
-    row_sum = sum([i for i in r])
+  for row in path:
+    row_sum = sum([i for i in row])
     if row_sum > 1:
       return False
-  for c in range(len(path)):
-    col_sum = sum([path[j][c] for j in range(len(path))])
+  for col in range(len(path)):
+    col_sum = sum([path[j][col] for j in range(len(path))])
     if col_sum > 1:
       return False
   return True
