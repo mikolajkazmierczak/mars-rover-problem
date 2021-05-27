@@ -9,7 +9,7 @@ from main import Robot, Sample, MarsMap, DistancesMap, \
   constraint_range, constraint_row_col_sum, objective
 
 
-random.seed(1)
+random.seed(3)
 
 
 def get_column(path, n):
@@ -24,10 +24,10 @@ def create_first_list(x):
     decisions = [0 for _ in range(x)]
     path = [[0 for _ in range(x+1)] for _ in range(x+1)]
 
-    for i in range(x//20 + 1):
+    for i in range(x//10 + 1):
         path[i][i+1] = 1
         decisions[i] = 1
-    path[(x//20)+1][0] = 1
+    path[(x//10)+1][0] = 1
     return path, decisions
 
 
@@ -91,7 +91,7 @@ distances_map = DistancesMap(SAMPLES_N,SAMPLES_N, samples)
 ##################################################
 # Simulated Annealing
 ##################################################
-n = 5          # Number of cycles
+n = 100          # Number of cycles
 m = 50          # Number of trials per cycle
 na = 1          # Number of accepted solutions
 prob_start = 0.7        # Probability of accepting worse solution at the start
