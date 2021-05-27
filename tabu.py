@@ -103,7 +103,7 @@ solution, value = tabu_search(path, decisions, distance)
 
 # Solution
 print(f'Best solution:\n{pretty_matrix(solution[0])}')
-print(f'Best decistions:\n{solution[1]}')
+print(f'Best decisions:\n{solution[1]}')
 print(f'Best objective: {value}')
 
 

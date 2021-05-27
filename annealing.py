@@ -90,7 +90,7 @@ for i in range(n):
 
 # Solution
 print(f'Best solution:\n{pretty_matrix(x_best[0])}')
-print(f'Best decistions:\n{x_best[1]}')
+print(f'Best decisions:\n{x_best[1]}')
 print(f'Best objective: {str(f_best)}')
 
 
