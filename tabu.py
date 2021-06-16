@@ -1,16 +1,13 @@
 import random
 import matplotlib.pyplot as plt
-from utils import pretty_matrix, mass_vector, distance_vector, create_first_list
-from main import Robot, Sample, MarsMap, DistancesMap,\
-  constraint_capacity, constraint_categories,\
-  constraint_range, objective, get_variables as find_neighbour
+from utils import *
 
 
 def find_neighborhood(solution, decisions):
   neighborhood = []
   length = 50
   while len(neighborhood) < length:
-    candidate = find_neighbour(solution, decisions)
+    candidate = get_variables(solution, decisions)
     if constraint_capacity(robot.capacity, candidate[1], samples) and \
       constraint_categories(samples, candidate[1], CATEGORIES) and \
       constraint_range(robot.range, candidate[0], distances_map):

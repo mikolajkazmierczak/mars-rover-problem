@@ -1,10 +1,7 @@
 import math
 import random
 import matplotlib.pyplot as plt
-from utils import pretty_matrix, mass_vector, distance_vector, create_first_list
-from main import Robot, Sample, MarsMap, DistancesMap,\
-  constraint_capacity, constraint_categories,\
-	constraint_range,	objective, get_variables
+from utils import *
 
 
 # Config
