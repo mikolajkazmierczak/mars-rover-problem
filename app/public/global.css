@@ -3,7 +3,33 @@
   font-family: "Raleway", sans-serif;
 }
 
+body {
+  margin: 0;
+}
+
 h1,
 h2 {
+  margin: 0;
   font-family: "Staatliches", cursive;
+  letter-spacing: 0.1rem;
+}
+
+label {
+  display: block;
+}
+input,
+select {
+  padding: 4px;
+}
+input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+}
+
+.success {
+  background: rgb(99, 223, 99);
+}
+
+.error {
+  background: rgb(223, 99, 99);
 }
