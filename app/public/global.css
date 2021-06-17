@@ -5,6 +5,11 @@
 
 body {
   margin: 0;
+  background-image: url("/rover.jpg");
+  background-size: cover;
+  background-position: center;
+  backdrop-filter: brightness(0.5);
+  color: white;
 }
 
 h1,
@@ -27,7 +32,7 @@ input[type="checkbox"] {
 }
 
 .success {
-  background: rgb(99, 223, 99);
+  background: rgb(33, 255, 155);
 }
 
 .error {

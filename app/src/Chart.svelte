@@ -47,9 +47,9 @@
       type: "line",
       data: {
         datasets: [
-          { label: "Funkcja celu", borderColor: "rgb(255,0,0)" },
-          { label: "Masa", borderColor: "rgb(0,255,0)" },
-          { label: "Dystans", borderColor: "rgb(0,0,255)" },
+          { label: "Funkcja celu", borderColor: "rgb(255, 33, 33)" },
+          { label: "Masa", borderColor: "rgb(33, 255, 155)" },
+          { label: "Dystans", borderColor: "rgb(33, 151, 255)" },
         ],
       },
       options: {
@@ -58,6 +58,23 @@
         radius: 0,
         tension: 0,
         plugins: { legend: { position: "bottom" } },
+        color: "rgb(255,255,255)",
+        scales: {
+          x: {
+            grid: {
+              borderColor: "rgb(150,150,150)",
+              color: "rgb(150,150,150)",
+            },
+            ticks: { color: "rgb(255,255,255)" },
+          },
+          y: {
+            grid: {
+              borderColor: "rgb(150,150,150)",
+              color: "rgb(150,150,150)",
+            },
+            ticks: { color: "rgb(255,255,255)" },
+          },
+        },
       },
     });
   }
@@ -68,4 +85,4 @@
 
 </script>
 
-<canvas width="100" height="40" bind:this={canvas} />
+<canvas width="100" height="50" bind:this={canvas} />

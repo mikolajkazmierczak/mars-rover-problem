@@ -103,8 +103,7 @@ def main(settings):
   def genetic_algorithm(path, decisions, distance):
     population = generate_first_generation(path, decisions)
 
-    count = 0
-    while count < ITERATIONS:
+    for count in range(ITERATIONS):
       new_population = select_best_units(copy.deepcopy(population))
       while len(new_population) != len(population):
         child = crossover(random.choice(new_population)[0],random.choice(new_population)[0])
@@ -121,14 +120,14 @@ def main(settings):
       best_solution = max(population, key=lambda x: objective(samples,x[1]))
       best_value = objective(samples,best_solution[1])
 
-      yield (count+1, best_solution, best_value)
+      yield count+1, best_solution, best_value
 
 
   # Config
   random.seed(settings['seed'])
-  # tabu
+  # genetic
   ITERATIONS = settings['genetic']['iterations']
-  MUTATION_CHANCE = settings['genetic']['MUTATION_CHANCE']
+  MUTATION_CHANCE = settings['genetic']['mutationChance']
 
   # Constants
   # robot

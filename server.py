@@ -1,9 +1,10 @@
+from copy import Error
 import json
 from flask import Flask
 from flask_socketio import SocketIO, emit
 from tabu import main as tabu
-# from annealing import main as annealing
-# from genetic import main as genetic
+from annealing import main as annealing
+from genetic import main as genetic
 
 
 app = Flask(__name__)
@@ -41,7 +42,7 @@ def start(res):
     run(genetic, settings)
   
   running = False
-  emit('stop', json.dumps({ 'message': 'stopped' }))
+  emit('stop')
   print('START end')
 
 
@@ -52,8 +53,27 @@ def stop(res):
   global running
 
   running = False
-  emit('stop', json.dumps({ 'message': 'stopped' }))
+  emit('stop')
   print('STOP end')
+
+
+@io.on('save')
+def save(res):
+  data = res['data']
+  with open(res['filepath'], 'w') as file:
+    json.dump(data, file)
+
+
+@io.on('read')
+def read(res):
+  try:
+    file = open(res['filepath'],)
+    emit('read', {
+      'name': res['name'],
+      'data': json.load(file)
+    })
+  except Error as e:
+    print(f'An error occured while opening the file:\n{e}')
 
 
 if __name__ == '__main__':

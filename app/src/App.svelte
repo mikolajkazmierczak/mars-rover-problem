@@ -20,25 +20,33 @@
     y: 50,
     samplesN: 20,
     valuesRangeStart: 1,
-    valuesRangeEnd: 20,
+    valuesRangeEnd: 10,
     categoriesN: 2,
     massRangeStart: 1,
     massRangeEnd: 10,
     annealing: {
       cycles: 100,
+      trials: 50,
+      accepted: 1,
+      probStart: 0.7,
+      probEnd: 0.001,
     },
     tabu: {
       iterations: 100,
       size: 15,
     },
     genetic: {
-      mutationChance: 20,
+      iterations: 100,
+      mutationChance: 0.5,
     },
   };
 
   let data = [];
   let count = 0;
   let normalize = false;
+
+  let filepathSettings = "settings.json";
+  let filepathChart = "chart.json";
 
   socket.on("connect", () => {
     console.log("event: connect");
@@ -57,23 +65,46 @@
     data = [res.objectives, res.masses, res.distances];
   });
 
-  socket.on("stop", (res) => {
-    working = false;
+  socket.on("stop", () => {
     console.log("event: stop");
-    res = JSON.parse(res);
-    console.log(res.message);
+    working = false;
+  });
+
+  socket.on("read", (res) => {
+    console.log("event: read");
+    console.log(res);
+    if (res.name == "settings") settings = res.data;
+    else if (res.name == "chart") {
+      data = res.data;
+    }
   });
 
   function start() {
     if (ioConnected) {
       working = true;
-      socket.emit("start", { type: algorithm, settings: settings });
+      socket.emit("start", {
+        type: algorithm,
+        settings: settings,
+      });
     }
   }
   function stop() {
     if (ioConnected) {
       socket.emit("stop", {});
     }
+  }
+
+  function save(filepath, data) {
+    socket.emit("save", {
+      filepath: filepath,
+      data: data,
+    });
+  }
+  function read(filepath, name) {
+    socket.emit("read", {
+      filepath: filepath,
+      name: name,
+    });
   }
 
 </script>
@@ -127,6 +158,19 @@
         Cykle<br />
         <input type="number" bind:value={settings.annealing.cycles} />
       </label>
+      <label>
+        Próby<br />
+        <input type="number" bind:value={settings.annealing.trials} />
+      </label>
+      <label>
+        Ilość rozwiązań<br />
+        <input type="number" bind:value={settings.annealing.accepted} />
+      </label>
+      <label>
+        Prawdopodobieństwo<br />
+        <input type="number" bind:value={settings.annealing.probStart} />
+        <input type="number" bind:value={settings.annealing.probEnd} />
+      </label>
 
       <h2>Tabu</h2>
       <label>
@@ -139,6 +183,10 @@
       </label>
 
       <h2>Genetyczny</h2>
+      <label>
+        Iteracje<br />
+        <input type="number" bind:value={settings.genetic.iterations} />
+      </label>
       <label>
         Współczynnik mutacji<br />
         <input type="number" bind:value={settings.genetic.mutationChance} />
@@ -156,6 +204,40 @@
       </p>
 
       <label>
+        Ustawienia<br />
+        <input type="text" bind:value={filepathSettings} />
+      </label>
+      <button
+        on:click={() => {
+          save(filepathSettings, settings);
+        }}
+        >Zapisz
+      </button>
+      <button
+        on:click={() => {
+          read(filepathSettings, "settings");
+        }}
+        >Wczytaj
+      </button>
+
+      <label>
+        Wykres<br />
+        <input type="text" bind:value={filepathChart} />
+      </label>
+      <button
+        on:click={() => {
+          save(filepathChart, data);
+        }}
+        >Zapisz
+      </button>
+      <button
+        on:click={() => {
+          read(filepathChart, "chart");
+        }}
+        >Wczytaj
+      </button>
+
+      <label>
         Algorytm<br />
         <select bind:value={algorithm}>
           <option value="annealing">Wyżarzanie</option>
@@ -164,19 +246,19 @@
         </select>
       </label>
 
-      <label class="inline">
-        Normalizuj<br />
-        <input type="checkbox" bind:checked={normalize} />
-      </label>
-
       <button on:click={start}>Start</button>
       <button on:click={stop}>Stop</button>
       {#if working}
         <span transition:fade><Loader type={"clock"} /></span>
       {/if}
       {#if count > 0}
-        <p>{count}</p>
+        <span transition:fade>{count}</span>
       {/if}
+
+      <label class="inline">
+        Normalizuj<br />
+        <input type="checkbox" bind:checked={normalize} />
+      </label>
     </div>
   </div>
 
@@ -206,6 +288,10 @@
   label.inline {
     display: flex;
     align-items: center;
+  }
+
+  button {
+    margin-bottom: 20px;
   }
 
   .settings {
