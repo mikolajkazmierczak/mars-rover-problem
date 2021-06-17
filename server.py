@@ -2,11 +2,27 @@ import json
 from flask import Flask
 from flask_socketio import SocketIO, emit
 from tabu import main as tabu
+# from annealing import main as annealing
+# from genetic import main as genetic
+
 
 app = Flask(__name__)
 io = SocketIO(app, cors_allowed_origins="*")
 
 running = False
+
+
+def run(algorithm, settings):
+  for count, objectives, masses, distances in algorithm(settings):
+    if not running:
+      break
+    data = {
+      'count': count,
+      'objectives': objectives,
+      'masses': masses,
+      'distances': distances,
+    }
+    emit('update', json.dumps(data))
 
 
 @io.on('start')
@@ -16,25 +32,13 @@ def start(res):
   global running
   running = True
 
+  settings = res['settings']
   if res['type'] == 'annealing':
-    solution, value = 10, 20
-    print(f'annealing: {solution}, {value}')
-    emit('update', json.dumps({ 'solution': solution, 'value': value }))
-
+    run(annealing, settings)
   if res['type'] == 'tabu':
-    for count, objectives, masses, distances in tabu(res['settings']):
-      if not running:
-        break
-      data = {
-        'count': count,
-        'objectives': objectives,
-        'masses': masses,
-        'distances': distances,
-      }
-      emit('update', json.dumps(data))
-
+    run(tabu, settings)
   if res['type'] == 'genetic':
-    pass
+    run(genetic, settings)
   
   running = False
   emit('stop', json.dumps({ 'message': 'stopped' }))
