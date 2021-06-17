@@ -4,6 +4,7 @@ Algorytmy wyżarzania, tabu i genetyczny dla rozwiązania problemu łazika marsj
 
 W projekcie zawiera się również aplikacja do uruchamiania solverów i obserwacji wyników w czasie rzeczywistym.
 
+![chart](settings.png)
 ![chart](chart.png)
 
 ## Uruchamianie
