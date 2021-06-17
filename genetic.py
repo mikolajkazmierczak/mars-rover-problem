@@ -14,11 +14,6 @@ def main(settings):
         constraint_range(robot.range, candidate[0], distances_map):
         generation.append(candidate)
     return generation
-
-
-  def sort_fitness(generation):
-      generation.sort(key=lambda x: objective(samples,x[1]))
-      return generation
       
 
   def mutate(unit):
