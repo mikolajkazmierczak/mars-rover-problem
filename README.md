@@ -1,24 +1,24 @@
-# Problem łazika marsjańskiego
+# mars-rover-problem
 
-Algorytmy wyżarzania, tabu i genetyczny dla rozwiązania problemu łazika marsjańskiego.
+Annealing, taboo and genetic algorithms for solving the Mars rover problem.
 
-W projekcie zawiera się również aplikacja do uruchamiania solverów i obserwacji wyników w czasie rzeczywistym.
+The project also includes an application for running solvers and observing results in real time.
 
 ![chart](settings.png)
 ![chart](chart.png)
 
-## Uruchamianie
+## Running
 
 ### Backend
 
-Wymaga języka Python (stworzono na wersji 3.8.9)
+Requires Python >=3.8.9
 
-1. `pip install -r requirement.txt` (instalacja wymaganych paczek)
-2. `py server.py` (uruchomienie serwera)
+1. `pip install -r requirement.txt`
+2. `py server.py`
 
 ### Frontend
 
-Wymaga Node.js (stworzono na wersji 14.16.1)
+Requires Node.js >=14.16.1
 
-1. `cd app` `npm i` `npm run build` (kompilacja plików przez Svelte)
-2. `npm run start` (uruchomienie serwera)
+1. `cd app` `npm i` `npm run build`
+2. `npm run start`
